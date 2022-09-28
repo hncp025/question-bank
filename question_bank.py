@@ -9,7 +9,7 @@ from io import StringIO
 from pandas.core.frame import DataFrame
 import pandas as pd
 import random
-import docx
+# import docx
 from tkinter import messagebox
 
 # create window
@@ -401,16 +401,16 @@ def download():
     df2 = pd.DataFrame(columns=df.columns)
     for i in x2:
         df2 = pd.concat([df2, df.iloc[i:i+1]])
-    doc = docx.Document()
-    for i in range(df2.shape[0]):
-        for j in range(df2.shape[1]):
-            doc.add_paragraph(str(df2.values[i, j]))
-    doc.save("frequently_wrong.docx")
-
+    # doc = docx.Document()
+    # for i in range(df2.shape[0]):
+    #     for j in range(df2.shape[1]):
+    #         doc.add_paragraph(str(df2.values[i, j]))
+    # doc.save("frequently_wrong.docx")
+    df2.to_excel('frequently_wrong.xlsx', index=False)
 
 btn_save = tk.Button(
     menu,
-    text="下載常錯題目.docx",
+    text="下載常錯題目.xlsx",
     fg="black",
     font=("標楷體", 20),
     command=lambda: download()
