@@ -68,7 +68,7 @@ def import_questions():
         t = t.replace("計算器。", "計算器。\n")
         t = t.replace("\t", "")
         s += t + "\n"
-        question_file = open("question_bank.txt", "w", encoding="utf-8")
+        question_file = open("file/question_bank.txt", "w", encoding="utf-8")
         question_file.write(s)
         question_file.close()
     x = ""
@@ -154,7 +154,7 @@ def start_command():
         "option_D": option_D,
         "answer": answers
     })
-    df.to_csv("question_bank.csv", encoding="utf-8")
+    df.to_csv("file/question_bank.csv", encoding="utf-8")
     import_qa.grid_forget()
     test.grid()
 
@@ -221,7 +221,7 @@ wrong_review = tk.Frame(root)
 x1 = []
 x2 = []
 # 和此 py 檔在同一個資料夾內才可以直接用檔名
-df = pd.DataFrame(pd.read_csv('question_bank.csv'))
+df = pd.DataFrame(pd.read_csv('file/question_bank.csv'))
 
 
 def command_wrong():
@@ -406,7 +406,7 @@ def download():
     #     for j in range(df2.shape[1]):
     #         doc.add_paragraph(str(df2.values[i, j]))
     # doc.save("frequently_wrong.docx")
-    df2.to_excel('frequently_wrong.xlsx', index=False)
+    df2.to_excel('file/frequently_wrong.xlsx', index=False)
 
 btn_save = tk.Button(
     menu,
